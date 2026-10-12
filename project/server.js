@@ -31,9 +31,8 @@ function saveData(data) {
 }
 
 // Главная страница
-
 app.get("/", (req, res) => {
-    const places = readItems();
+    const places = readData();
 
     res.render("index", {
         title: "Тур-гид по Астане",
@@ -112,7 +111,7 @@ app.post("/add", (req, res) => {
 // Страница отдельного места
 
 app.get("/place/:id", (req, res) => {
-    const places = readItems();
+    const places = readData();
     const place = places.find(
         item => item.id === Number(req.params.id)
     );
